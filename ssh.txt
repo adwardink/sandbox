@@ -1,0 +1,47 @@
+ssh命令是Linux下常用的远程登录客户端工具，它常用来替代telnet，因为telnet采用明文传输，安全性差，而ssh采用安全传输机制，是远程访问的首选。
+
+ 
+常用方式
+
+格式：ssh <host>
+
+使用SSH远程登录主机<host>，端口为22。用户为当前登录用户。
+
+ 
+
+格式：ssh -p <port> <host>
+
+格式：ssh <host> -p <port>
+
+使用SSH远程登录主机<host>，端口为<port>。用户为当前登录用户。
+
+ 
+
+格式：ssh -l <user> <host>
+
+格式：ssh <user>@<host>
+
+使用SSH远程登录主机<host>，端口为22。用户为<user>。
+
+ 
+
+格式：ssh -p <port> -l <user> <host>
+
+格式：ssh -p <port> <user>@<host>
+
+使用SSH远程登录主机<host>，端口为<port>。用户为<user>。
+
+ 
+
+要注意的是sftp工具的端口指定方式是
+
+sftp -oPort=<port> <host>
+
+使用sftp访问主机<host>，端口为<port>
+
+ 
+
+怎样更改sshd的服务端口？
+
+由于OpenSSH也会有安全问题，有时候又不想更新到最新版本，那么常见的提高系统安全性的方法就是修改sshd的服务端口，打开/etc /ssh/sshd_config，找到#Port 22那行，改成别的端口，比如Port 2622。然后重新加载sshd配置，即执行service sshd reload。
+
